@@ -1,0 +1,11 @@
+1///Luc///Abu///0192857643///193 A Jalan Sri Pelangi Taman Pelangi///2022-02-14///Pending///
+2///Thulani///Jelly///0165748392///Jalan Camar 4/3, Kota Damansara///2022-02-27///Pending///
+3///Harun///Portyman///0142857643///193 A Jalan Sri Pelangi Taman Pelangi///2022-02-03///Pending///
+4///Layla Mata///Poply///01982878756///A 109 Jln Meranti Merah Taman Kebun Teh///2022-03-01///Pending///
+5///Devin Goodwin///LaiKer///0124589321///71 Jln Raja Musa Mahadi Hillview Estate///2022-02-05///Pending///
+6///Tamar Valdez///Wei Loon///01746482934///1284A, Lrg Keranji 6A Off Jalan Keranji, Kuching///2022-01-17///Done///
+7///Luc///Persek///0132163386///L1 9B 156 Jalan Ampang Avenue K///2022-02-21///Done///
+8///Thulani///Muly///0175846321///suite 408 & 410, 4th floor medical specialist floor menara kh menara promet, kl///2022-02-25///Done///
+9///Tamar Valdez///Jc///0175647231///Jalan Merdeka, Kampung Air///2022-02-06///Done///
+10///Layla Mata///boy///0156837485///44-46 Jalan Petaling Utama 3 Taman Petaling Utama///2022-01-20///Done///
+11///Luc///LaiKer///0124589321///71 Jln Raja Musa Mahadi Hillview Estate///2022-07-15///Done

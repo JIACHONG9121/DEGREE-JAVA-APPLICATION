@@ -1,0 +1,1415 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
+ */
+package assignment.sem.pkg1;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+/**
+ *
+ * @author bouoron
+ */
+public class AppointmentManagement extends javax.swing.JFrame {
+
+    /**
+     * Creates new form AppointmentManagement
+     */
+    public AppointmentManagement() {
+        initComponents();
+        txtName.setEnabled(false);
+        txtPass.setEnabled(false);
+        boxGender3.setEnabled(false);
+        txtContactNum.setEnabled(false);
+        txtAddress.setEnabled(false);
+        txtEmail.setEnabled(false);
+        txtDay.setEnabled(false);
+        txtName1.setEnabled(false);
+        txtPass1.setEnabled(false);
+        boxGender4.setEnabled(false);
+        txtContactNum3.setEnabled(false);
+        txtAddress3.setEnabled(false);
+        txtEmail3.setEnabled(false);
+        txtDay3.setEnabled(false);
+        txtTechnicianName.setEnabled(false); 
+        txtCustomerName.setEnabled(false); 
+        txtCustomerContactNumber.setEnabled(false); 
+        txtCustomerAddress.setEnabled(false); 
+        
+        String filePathTech = "Technician.txt";
+        File fileTech = new File(filePathTech);
+    
+        try {
+            FileReader readTech = new FileReader(fileTech);
+            BufferedReader buffread = new BufferedReader(readTech);
+            
+            DefaultTableModel tablemode = (DefaultTableModel)tableView.getModel();
+            Object[] lines = buffread.lines().toArray();
+            
+            for(int i =0; i < lines.length; i++){
+                String[] row = lines[i].toString().split("///");
+                tablemode.addRow(row);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    
+        String filePathAppointment = "Appointment.txt";
+        File fileAppointment = new File(filePathAppointment);
+    
+        try {
+            FileReader readAppointment = new FileReader(fileAppointment);
+            BufferedReader buffread = new BufferedReader(readAppointment);
+            
+            DefaultTableModel tablemodeAppointment = (DefaultTableModel)tableAppointment.getModel();
+            Object[] lines = buffread.lines().toArray();
+            
+            for(int i =0; i < lines.length; i++){
+                String[] row = lines[i].toString().split("///");
+                tablemodeAppointment.addRow(row);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        String filePathCus = "Customer.txt";
+        File fileCus = new File(filePathCus);
+    
+        try {
+            FileReader readCus = new FileReader(fileCus);
+            BufferedReader buffread = new BufferedReader(readCus);
+            
+            DefaultTableModel tablemodeCus = (DefaultTableModel)tableView1.getModel();
+            Object[] lines = buffread.lines().toArray();
+            
+            for(int i =0; i < lines.length; i++){
+                String[] row = lines[i].toString().split("///");
+                tablemodeCus.addRow(row);
+            }
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            FileReader fr = new FileReader(fileAppointment); // reads characters from a file
+            BufferedReader br = new BufferedReader(fr); // reads characters from another Reader
+
+            DefaultTableModel model = (DefaultTableModel) tableAppointment.getModel();
+            Object[] lines = br.lines().toArray();
+            model.setRowCount(0);
+            for (int i = 0; i < lines.length; i++) {
+                String[] row = lines[i].toString().split("///");
+                model.addRow(row);
+            }
+            int lastLine = lines.length;
+            int newID = lastLine + 1;
+            txtAppointmentID.setText(String.valueOf(newID));
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+        txtAppointmentID.setEnabled(false);
+    }
+
+    /**
+     * This method is called from within the constructor to initialize the form.
+     * WARNING: Do NOT modify this code. The content of this method is always
+     * regenerated by the Form Editor.
+     */
+    @SuppressWarnings("unchecked")
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
+    private void initComponents() {
+
+        jPanel1 = new javax.swing.JPanel();
+        jLabel1 = new javax.swing.JLabel();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tableView = new javax.swing.JTable();
+        txtEmail = new javax.swing.JTextField();
+        jLabel28 = new javax.swing.JLabel();
+        jLabel30 = new javax.swing.JLabel();
+        txtName = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtAddress = new javax.swing.JTextArea();
+        jLabel29 = new javax.swing.JLabel();
+        txtContactNum = new javax.swing.JTextField();
+        boxGender3 = new javax.swing.JComboBox<>();
+        jLabel31 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtDay = new javax.swing.JTextArea();
+        txtPass = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        txtAppointmentID = new javax.swing.JTextField();
+        jLabel24 = new javax.swing.JLabel();
+        txtTechnicianName = new javax.swing.JTextField();
+        jLabel25 = new javax.swing.JLabel();
+        jLabel26 = new javax.swing.JLabel();
+        txtCustomerContactNumber = new javax.swing.JTextField();
+        jLabel27 = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
+        btnCreate3 = new javax.swing.JButton();
+        btnUpdate2 = new javax.swing.JButton();
+        btnDelete2 = new javax.swing.JButton();
+        btnClear2 = new javax.swing.JButton();
+        btnback2 = new javax.swing.JButton();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tableAppointment = new javax.swing.JTable();
+        jLabel36 = new javax.swing.JLabel();
+        txtCustomerName = new javax.swing.JTextField();
+        txtStatus = new javax.swing.JTextField();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tableView1 = new javax.swing.JTable();
+        jLabel37 = new javax.swing.JLabel();
+        txtName1 = new javax.swing.JTextField();
+        jLabel38 = new javax.swing.JLabel();
+        txtPass1 = new javax.swing.JTextField();
+        jLabel39 = new javax.swing.JLabel();
+        boxGender4 = new javax.swing.JComboBox<>();
+        jLabel40 = new javax.swing.JLabel();
+        txtContactNum3 = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        txtAddress3 = new javax.swing.JTextArea();
+        jLabel42 = new javax.swing.JLabel();
+        txtEmail3 = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane14 = new javax.swing.JScrollPane();
+        txtDay3 = new javax.swing.JTextArea();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtCustomerAddress = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtDate = new com.toedter.calendar.JDateChooser();
+        jPanel2 = new javax.swing.JPanel();
+        jLabel8 = new javax.swing.JLabel();
+        lblimage2 = new javax.swing.JLabel();
+        lblname = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
+
+        jPanel1.setBackground(new java.awt.Color(255, 255, 255));
+
+        jLabel1.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel1.setText("User Profile");
+
+        tableView.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Password", "Gender", "Contact Number", "Address", "Email", "Available Day(Technician)"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableView.getTableHeader().setReorderingAllowed(false);
+        tableView.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableViewMouseClicked(evt);
+            }
+        });
+        jScrollPane3.setViewportView(tableView);
+
+        jLabel28.setText("Password:");
+
+        jLabel30.setText("Gender:");
+
+        txtName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNameActionPerformed(evt);
+            }
+        });
+        txtName.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtNameKeyTyped(evt);
+            }
+        });
+
+        jLabel33.setText("Email:");
+
+        txtAddress.setColumns(20);
+        txtAddress.setRows(5);
+        jScrollPane1.setViewportView(txtAddress);
+
+        jLabel29.setText(" Name:");
+
+        txtContactNum.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactNumActionPerformed(evt);
+            }
+        });
+        txtContactNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactNumKeyTyped(evt);
+            }
+        });
+
+        boxGender3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        boxGender3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGender3ActionPerformed(evt);
+            }
+        });
+
+        jLabel31.setText("Contact Number:");
+
+        txtDay.setColumns(20);
+        txtDay.setRows(5);
+        jScrollPane2.setViewportView(txtDay);
+
+        txtPass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPassActionPerformed(evt);
+            }
+        });
+
+        jLabel32.setText("Address:");
+
+        jLabel2.setText("Available Day:");
+
+        jLabel23.setText("Appointment ID:");
+
+        txtAppointmentID.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtAppointmentIDActionPerformed(evt);
+            }
+        });
+        txtAppointmentID.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtAppointmentIDKeyTyped(evt);
+            }
+        });
+
+        jLabel24.setText("Technician Name:");
+
+        txtTechnicianName.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTechnicianNameActionPerformed(evt);
+            }
+        });
+
+        jLabel25.setText("Customer Name:");
+
+        jLabel26.setText("Customer Contact Number:");
+
+        txtCustomerContactNumber.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCustomerContactNumberActionPerformed(evt);
+            }
+        });
+        txtCustomerContactNumber.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtCustomerContactNumberKeyTyped(evt);
+            }
+        });
+
+        jLabel27.setText("Customer Address:");
+
+        jLabel34.setText("Date:");
+
+        jLabel35.setText("Status:");
+
+        btnCreate3.setBackground(new java.awt.Color(0, 204, 204));
+        btnCreate3.setText("Create");
+        btnCreate3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCreate3ActionPerformed(evt);
+            }
+        });
+
+        btnUpdate2.setBackground(new java.awt.Color(0, 204, 204));
+        btnUpdate2.setText("Update");
+        btnUpdate2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnUpdate2ActionPerformed(evt);
+            }
+        });
+
+        btnDelete2.setBackground(new java.awt.Color(0, 204, 204));
+        btnDelete2.setText("Remove");
+        btnDelete2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDelete2ActionPerformed(evt);
+            }
+        });
+
+        btnClear2.setBackground(new java.awt.Color(0, 204, 204));
+        btnClear2.setText("Clear");
+        btnClear2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnClear2ActionPerformed(evt);
+            }
+        });
+
+        btnback2.setBackground(new java.awt.Color(0, 204, 204));
+        btnback2.setFont(new java.awt.Font("Dialog", 1, 11)); // NOI18N
+        btnback2.setForeground(new java.awt.Color(255, 255, 255));
+        btnback2.setText("Back");
+        btnback2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnback2ActionPerformed(evt);
+            }
+        });
+
+        tableAppointment.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Appointment ID", "Technician Name", "Customer Name", "Customer Contact Number", "Customer Address", "Date and Day", "Status"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableAppointment.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableAppointmentMouseClicked(evt);
+            }
+        });
+        jScrollPane12.setViewportView(tableAppointment);
+
+        jLabel36.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        jLabel36.setText("Appointment Management");
+
+        txtStatus.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtStatusKeyTyped(evt);
+            }
+        });
+
+        tableView1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Name", "Password", "Gender", "Contact Number", "Address", "Email", "Available Day(Technician)"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false, false, true
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tableView1.getTableHeader().setReorderingAllowed(false);
+        tableView1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableView1MouseClicked(evt);
+            }
+        });
+        jScrollPane11.setViewportView(tableView1);
+
+        jLabel37.setText(" Name:");
+
+        txtName1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtName1ActionPerformed(evt);
+            }
+        });
+        txtName1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtName1KeyTyped(evt);
+            }
+        });
+
+        jLabel38.setText("Password:");
+
+        txtPass1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtPass1ActionPerformed(evt);
+            }
+        });
+
+        jLabel39.setText("Gender:");
+
+        boxGender4.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Male", "Female" }));
+        boxGender4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                boxGender4ActionPerformed(evt);
+            }
+        });
+
+        jLabel40.setText("Contact Number:");
+
+        txtContactNum3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtContactNum3ActionPerformed(evt);
+            }
+        });
+        txtContactNum3.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                txtContactNum3KeyTyped(evt);
+            }
+        });
+
+        jLabel41.setText("Address:");
+
+        txtAddress3.setColumns(20);
+        txtAddress3.setRows(5);
+        jScrollPane13.setViewportView(txtAddress3);
+
+        jLabel42.setText("Email:");
+
+        jLabel3.setText("Available Day:");
+
+        txtDay3.setColumns(20);
+        txtDay3.setRows(5);
+        jScrollPane14.setViewportView(txtDay3);
+
+        jLabel4.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel4.setText("Technician");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
+        jLabel5.setText("Customer");
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel6.setText("Customer");
+
+        jLabel7.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        jLabel7.setText("Technician");
+
+        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
+        jPanel1.setLayout(jPanel1Layout);
+        jPanel1Layout.setHorizontalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1)
+                    .addComponent(btnback2)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane12)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel1Layout.createSequentialGroup()
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel4))
+                                .addGap(24, 24, 24)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jScrollPane11, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel32)
+                                    .addComponent(jLabel30)
+                                    .addComponent(jLabel31)
+                                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel33)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtEmail, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtContactNum, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(boxGender3, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtPass, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel29)
+                                    .addComponent(jLabel28)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel7))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel41)
+                                    .addComponent(jLabel39)
+                                    .addComponent(jLabel40)
+                                    .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel42)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtEmail3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtContactNum3, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(boxGender4, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addComponent(txtPass1, javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtName1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(jLabel37)
+                                    .addComponent(jLabel38)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel6)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(45, 45, 45)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(55, 55, 55)
+                                        .addComponent(jLabel36))
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addComponent(btnCreate3)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btnUpdate2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btnDelete2)
+                                            .addGap(18, 18, 18)
+                                            .addComponent(btnClear2, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(55, 55, 55)
+                                                    .addComponent(jLabel23))
+                                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                                    .addComponent(jLabel25)
+                                                    .addComponent(jLabel26)
+                                                    .addComponent(jLabel24)
+                                                    .addComponent(jLabel27)
+                                                    .addComponent(jLabel34)
+                                                    .addComponent(jLabel35)))
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addGap(4, 4, 4)
+                                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                                            .addComponent(txtTechnicianName)
+                                                            .addComponent(txtAppointmentID)
+                                                            .addComponent(txtCustomerName)
+                                                            .addComponent(txtCustomerContactNumber)
+                                                            .addComponent(txtCustomerAddress, javax.swing.GroupLayout.DEFAULT_SIZE, 245, Short.MAX_VALUE))
+                                                        .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                    .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))))))))
+                .addContainerGap(24, Short.MAX_VALUE))
+        );
+        jPanel1Layout.setVerticalGroup(
+            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel29, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(jScrollPane11, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel28)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel30)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(boxGender3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtContactNum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel32)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel33)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGap(15, 15, 15))
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel6)
+                                .addComponent(jLabel7)))
+                        .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 17, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtName1, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel38)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtPass1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel39)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(boxGender4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel40)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtContactNum3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel41)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane13, javax.swing.GroupLayout.PREFERRED_SIZE, 45, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel42)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtEmail3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane14, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane12, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel23)
+                            .addComponent(txtAppointmentID, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel24)
+                            .addComponent(txtTechnicianName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel25)
+                            .addComponent(txtCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel26)
+                            .addComponent(txtCustomerContactNumber, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel27)
+                            .addComponent(txtCustomerAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(19, 19, 19)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel34)
+                            .addComponent(txtDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtStatus, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel35))
+                        .addGap(18, 18, 18)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnCreate3)
+                            .addComponent(btnUpdate2)
+                            .addComponent(btnDelete2)
+                            .addComponent(btnClear2))))
+                .addGap(18, 18, 18)
+                .addComponent(btnback2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+
+        jLabel8.setFont(new java.awt.Font("Dialog", 0, 100)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel8.setText("✺");
+
+        lblimage2.setFont(new java.awt.Font("Times New Roman", 1, 24)); // NOI18N
+        lblimage2.setForeground(new java.awt.Color(255, 255, 255));
+        lblimage2.setText("APU Hostel Appliances Service Centre");
+
+        lblname.setForeground(new java.awt.Color(255, 255, 255));
+        lblname.setText("ManagerName");
+
+        jLabel9.setBackground(new java.awt.Color(0, 204, 204));
+        jLabel9.setFont(new java.awt.Font("Dialog", 1, 14)); // NOI18N
+        jLabel9.setText("X");
+        jLabel9.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel9MouseClicked(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblimage2)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addComponent(lblname)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel9)
+                .addGap(4, 4, 4))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(lblname)
+                    .addComponent(jLabel9))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(27, 27, 27)
+                        .addComponent(lblimage2)))
+                .addGap(20, 20, 20))
+        );
+
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0))
+        );
+
+        pack();
+        setLocationRelativeTo(null);
+    }// </editor-fold>//GEN-END:initComponents
+
+    private void tableViewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableViewMouseClicked
+
+        String tableName = tableView.getValueAt(tableView.getSelectedRow(), 0).toString();
+        String tablePass = tableView.getValueAt(tableView.getSelectedRow(), 1).toString();
+        String tableGen = tableView.getValueAt(tableView.getSelectedRow(), 2).toString();
+        for(int i = 0; i < boxGender3.getItemCount(); i++){
+            if(boxGender3.getItemAt(i).equalsIgnoreCase(tableGen)){
+                boxGender3.setSelectedIndex(i);
+            }
+        }
+        String tableContactNum = tableView.getValueAt(tableView.getSelectedRow(), 3).toString();
+        String tableAddress = tableView.getValueAt(tableView.getSelectedRow(), 4).toString();
+        String tableEmail = tableView.getValueAt(tableView.getSelectedRow(), 5).toString();
+        String tableDay = tableView.getValueAt(tableView.getSelectedRow(), 6).toString();
+
+        txtName.setText(tableName);
+        txtPass.setText(tablePass);
+        txtContactNum.setText(tableContactNum);
+        txtAddress.setText(tableAddress);
+        txtEmail.setText(tableEmail);
+        txtDay.setText(tableDay);
+        tableAppointment.clearSelection();
+        txtStatus.setText("");
+        txtCustomerName.setText(txtName1.getText());
+        txtCustomerContactNumber.setText(txtContactNum3.getText());
+        txtCustomerAddress.setText(txtAddress3.getText());
+        txtTechnicianName.setText(txtName.getText());
+        btnCreate3.setEnabled(true);
+    }//GEN-LAST:event_tableViewMouseClicked
+
+    private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPassActionPerformed
+
+    private void txtNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNameActionPerformed
+
+    }//GEN-LAST:event_txtNameActionPerformed
+
+    private void txtNameKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNameKeyTyped
+        char d = evt.getKeyChar();
+
+        if(Character.isDigit(d)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtNameKeyTyped
+
+    private void boxGender3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGender3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGender3ActionPerformed
+
+    private void txtContactNumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNumActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactNumActionPerformed
+
+    private void txtContactNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNumKeyTyped
+        char t = evt.getKeyChar();
+
+        if(!Character.isDigit(t)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtContactNumKeyTyped
+
+    private void txtAppointmentIDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAppointmentIDActionPerformed
+
+    }//GEN-LAST:event_txtAppointmentIDActionPerformed
+
+    private void txtAppointmentIDKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtAppointmentIDKeyTyped
+        char v = evt.getKeyChar();
+
+        if(!Character.isDigit(v)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtAppointmentIDKeyTyped
+
+    private void txtTechnicianNameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTechnicianNameActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTechnicianNameActionPerformed
+
+    private void txtCustomerContactNumberActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCustomerContactNumberActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCustomerContactNumberActionPerformed
+
+    private void txtCustomerContactNumberKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCustomerContactNumberKeyTyped
+        char t = evt.getKeyChar();
+
+        if(!Character.isDigit(t)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtCustomerContactNumberKeyTyped
+
+    private void btnCreate3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCreate3ActionPerformed
+        if(txtAppointmentID.getText().equals("")||txtTechnicianName.getText().equals("")|| txtCustomerName.getText().equals("")|| txtCustomerContactNumber.getText().equals("")|| txtCustomerAddress.getText().equals("")|| txtStatus.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please Fill in all Blank Textbox");
+        }else{
+            String s = "";
+            boolean exists = false;
+            for (int i = 0; i < tableAppointment.getRowCount(); i++){
+                s = tableAppointment.getValueAt(i, 0).toString().trim();
+
+                if(txtAppointmentID.getText().equals(s)){
+                    exists = true;
+                    JOptionPane.showMessageDialog(null, "ID Exist, type another ID Please");
+                    int multiply = Integer.parseInt(txtAppointmentID.getText())*2;
+                    txtAppointmentID.setText(Integer.toString(multiply));
+
+                    break;
+                }
+            }if(exists == false){
+                SimpleDateFormat datef = new SimpleDateFormat("yyyy-MM-dd");
+                String date = datef.format(txtDate.getDate());
+                
+                String TechData[] = {txtAppointmentID.getText(),txtTechnicianName.getText(),txtCustomerName.getText(),
+                                     txtCustomerContactNumber.getText(),txtCustomerAddress.getText(),date,txtStatus.getText()};
+
+                DefaultTableModel table = (DefaultTableModel)tableAppointment.getModel();
+
+                table.addRow(TechData);
+
+                String filePath = "Appointment.txt";
+                File file = new File(filePath);
+                try {
+                    FileWriter write = new FileWriter(file);
+                    BufferedWriter buffwrite = new BufferedWriter(write);
+
+                    for(int i = 0; i < tableAppointment.getRowCount(); i++){
+                        for(int p = 0; p < tableAppointment.getColumnCount(); p++){
+                            buffwrite.write(tableAppointment.getValueAt(i, p).toString()+"///");
+                        }
+                        buffwrite.newLine();
+                    }
+
+                    buffwrite.close();
+                    write.close();
+
+                } catch (IOException ex) {
+                    Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+                String fileAppointment = "Appointment.txt";
+       
+
+                JOptionPane.showMessageDialog(this,"Created new Appointment Successfully");
+                
+                try {
+                FileReader fr = new FileReader(fileAppointment); // reads characters from a file
+                BufferedReader br = new BufferedReader(fr); // reads characters from another Reader
+
+                DefaultTableModel model = (DefaultTableModel) tableAppointment.getModel();
+                Object[] lines = br.lines().toArray();
+                model.setRowCount(0);
+                for (int i = 0; i < lines.length; i++) {
+                    String[] row = lines[i].toString().split("///");
+                    model.addRow(row);
+                }
+                int lastLine = lines.length;
+                int newID = lastLine + 1;
+                txtAppointmentID.setText(String.valueOf(newID));
+                    
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+
+                }
+                
+                txtTechnicianName.setText("");
+                txtCustomerName.setText("");
+                txtCustomerContactNumber.setText("");
+                txtCustomerAddress.setText("");
+                txtStatus.setText("");
+                tableAppointment.clearSelection();
+                tableView1.clearSelection();
+                tableView.clearSelection();
+                txtName.setText("");
+                txtPass.setText("");
+                txtContactNum.setText("");
+                txtAddress.setText("");
+                txtEmail.setText("");
+                txtDay.setText("");
+                txtName1.setText("");
+                txtPass1.setText("");
+                txtContactNum3.setText("");
+                txtAddress3.setText("");
+                txtEmail3.setText("");
+                txtDay3.setText("");
+            }
+    }//GEN-LAST:event_btnCreate3ActionPerformed
+    }
+    private void btnUpdate2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdate2ActionPerformed
+        DefaultTableModel table = (DefaultTableModel)tableAppointment.getModel();
+
+        SimpleDateFormat datef = new SimpleDateFormat("yyyy-MM-dd");
+        
+         if(txtAppointmentID.getText().equals("")||txtTechnicianName.getText().equals("")|| txtCustomerName.getText().equals("")|| txtCustomerContactNumber.getText().equals("")|| txtCustomerAddress.getText().equals("")|| txtStatus.getText().equals("")){
+            JOptionPane.showMessageDialog(this,"Please Fill in all Blank Textbox");
+         }else if(tableAppointment.getSelectedRowCount() == 1){
+            String ID = txtAppointmentID.getText();
+            String TechName = txtTechnicianName.getText();
+            String CusName = txtCustomerName.getText();
+            String CusNum = txtCustomerContactNumber.getText();
+            String CusAddress = txtCustomerAddress.getText();
+            String date = datef.format(txtDate.getDate());
+            String Status = txtStatus.getText();
+
+            table.setValueAt(ID, tableAppointment.getSelectedRow(), 0);
+            table.setValueAt(TechName, tableAppointment.getSelectedRow(), 1);
+            table.setValueAt(CusName, tableAppointment.getSelectedRow(), 2);
+            table.setValueAt(CusNum, tableAppointment.getSelectedRow(), 3);
+            table.setValueAt(CusAddress, tableAppointment.getSelectedRow(), 4);
+            table.setValueAt(date, tableAppointment.getSelectedRow(), 5);
+            table.setValueAt(Status, tableAppointment.getSelectedRow(), 6);
+
+            JOptionPane.showMessageDialog(this, "Successfully updated!!");
+
+            txtTechnicianName.setText("");
+            txtCustomerName.setText("");
+            txtCustomerContactNumber.setText("");
+            txtCustomerAddress.setText("");
+            txtStatus.setText("");
+            btnCreate3.setEnabled(true);
+            tableAppointment.clearSelection();
+            tableView1.clearSelection();
+            tableView.clearSelection();
+            txtName.setText("");
+            txtPass.setText("");
+            txtContactNum.setText("");
+            txtAddress.setText("");
+            txtEmail.setText("");
+            txtDay.setText("");
+            txtName1.setText("");
+            txtPass1.setText("");
+            txtContactNum3.setText("");
+            txtAddress3.setText("");
+            txtEmail3.setText("");
+            txtDay3.setText("");
+            
+            String filePath = "Appointment.txt";
+            File file = new File(filePath);
+            try {
+                FileWriter write = new FileWriter(file);
+                BufferedWriter buffwrite = new BufferedWriter(write);
+
+                for(int i = 0; i < tableAppointment.getRowCount(); i++){
+                    for(int p = 0; p < tableAppointment.getColumnCount(); p++){
+                        buffwrite.write(tableAppointment.getValueAt(i, p).toString()+"///");
+                    }
+                    buffwrite.newLine();
+                }
+
+                buffwrite.close();
+                write.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            
+            String fileAppointment = "Appointment.txt";
+       try {
+            FileReader fr = new FileReader(fileAppointment); // reads characters from a file
+            BufferedReader br = new BufferedReader(fr); // reads characters from another Reader
+
+            DefaultTableModel model = (DefaultTableModel) tableAppointment.getModel();
+            Object[] lines = br.lines().toArray();
+            model.setRowCount(0);
+            for (int i = 0; i < lines.length; i++) {
+                String[] row = lines[i].toString().split("///");
+                model.addRow(row);
+            }
+            int lastLine = lines.length;
+            int newID = lastLine + 1;
+            txtAppointmentID.setText(String.valueOf(newID));
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+
+        }else{
+            if(table.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "There is no data on the table");
+            }else{
+                JOptionPane.showMessageDialog(this, "Please select a list for update!");
+            }
+        }
+    }//GEN-LAST:event_btnUpdate2ActionPerformed
+
+    private void btnDelete2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDelete2ActionPerformed
+        DefaultTableModel table = (DefaultTableModel)tableAppointment.getModel();
+
+        if(tableAppointment.getSelectedRowCount()==1){
+            table.removeRow(tableAppointment.getSelectedRow());
+
+            String filePath = "Appointment.txt";
+            File file = new File(filePath);
+            try {
+                FileWriter write = new FileWriter(file);
+                BufferedWriter buffwrite = new BufferedWriter(write);
+
+                for(int i = 0; i < tableAppointment.getRowCount(); i++){
+                    for(int p = 0; p < tableAppointment.getColumnCount(); p++){
+                        buffwrite.write(tableAppointment.getValueAt(i, p).toString()+"///");
+                    }
+                    buffwrite.newLine();
+                }
+
+                buffwrite.close();
+                write.close();
+
+            } catch (IOException ex) {
+                Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+            JOptionPane.showMessageDialog(this, "Successfully removed");
+            txtTechnicianName.setText("");
+            txtCustomerName.setText("");
+            txtCustomerContactNumber.setText("");
+            txtCustomerAddress.setText("");
+            txtStatus.setText("");
+            btnCreate3.setEnabled(true);
+            
+            String fileAppointment = "Appointment.txt";
+       try {
+            FileReader fr = new FileReader(fileAppointment); // reads characters from a file
+            BufferedReader br = new BufferedReader(fr); // reads characters from another Reader
+
+            DefaultTableModel model = (DefaultTableModel) tableAppointment.getModel();
+            Object[] lines = br.lines().toArray();
+            model.setRowCount(0);
+            for (int i = 0; i < lines.length; i++) {
+                String[] row = lines[i].toString().split("///");
+                model.addRow(row);
+            }
+            int lastLine = lines.length;
+            int newID = lastLine + 1;
+            txtAppointmentID.setText(String.valueOf(newID));
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+            
+        }else{
+            if(tableAppointment.getRowCount()==0){
+                JOptionPane.showMessageDialog(this, "There are no data left in the table");
+            }else{
+                JOptionPane.showMessageDialog(this, "Please select a row to remove");
+            }
+        }
+    }//GEN-LAST:event_btnDelete2ActionPerformed
+
+    private void btnClear2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnClear2ActionPerformed
+
+       txtTechnicianName.setText("");
+       txtCustomerName.setText("");
+       txtCustomerContactNumber.setText("");
+       txtCustomerAddress.setText("");
+       txtStatus.setText("");
+       btnCreate3.setEnabled(true);
+       tableAppointment.clearSelection();
+       tableView1.clearSelection();
+       tableView.clearSelection();
+       txtName.setText("");
+       txtPass.setText("");
+       txtContactNum.setText("");
+       txtAddress.setText("");
+       txtEmail.setText("");
+       txtDay.setText("");
+       txtName1.setText("");
+       txtPass1.setText("");
+       txtContactNum3.setText("");
+       txtAddress3.setText("");
+       txtEmail3.setText("");
+       txtDay3.setText("");
+       String fileAppointment = "Appointment.txt";
+       try {
+            FileReader fr = new FileReader(fileAppointment); // reads characters from a file
+            BufferedReader br = new BufferedReader(fr); // reads characters from another Reader
+
+            DefaultTableModel model = (DefaultTableModel) tableAppointment.getModel();
+            Object[] lines = br.lines().toArray();
+            model.setRowCount(0);
+            for (int i = 0; i < lines.length; i++) {
+                String[] row = lines[i].toString().split("///");
+                model.addRow(row);
+            }
+            int lastLine = lines.length;
+            int newID = lastLine + 1;
+            txtAppointmentID.setText(String.valueOf(newID));
+
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+
+        }
+    }//GEN-LAST:event_btnClear2ActionPerformed
+
+    private void btnback2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnback2ActionPerformed
+        Main z = new Main();
+        z.lblname.setText(lblname.getText());
+        z.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_btnback2ActionPerformed
+
+    private void tableAppointmentMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableAppointmentMouseClicked
+
+        DefaultTableModel table = (DefaultTableModel)tableAppointment.getModel();
+
+        String tableID = table.getValueAt(tableAppointment.getSelectedRow(), 0).toString();
+        String tableTechnicianName = table.getValueAt(tableAppointment.getSelectedRow(), 1).toString();
+        String tableCusName = table.getValueAt(tableAppointment.getSelectedRow(), 2).toString();
+        String tableCusNum = table.getValueAt(tableAppointment.getSelectedRow(), 3).toString();
+        String tableCusAddress = table.getValueAt(tableAppointment.getSelectedRow(), 4).toString();
+        Date tableDay;
+        try {
+            tableDay = new SimpleDateFormat("yyyy-MM-dd").parse((String)table.getValueAt(tableAppointment.getSelectedRow(), 5));
+            txtDate.setDate(tableDay);
+        } catch (ParseException ex) {
+            Logger.getLogger(AppointmentManagement.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        String tableStatus = table.getValueAt(tableAppointment.getSelectedRow(), 6).toString();
+        btnCreate3.setEnabled(false);
+        txtAppointmentID.setText(tableID);
+        txtTechnicianName.setText(tableTechnicianName);
+        txtCustomerName.setText(tableCusName);
+        txtCustomerContactNumber.setText(tableCusNum);
+        txtCustomerAddress.setText(tableCusAddress);
+        txtStatus.setText(tableStatus);
+        txtAppointmentID.setEnabled(false);
+        tableView1.clearSelection();
+        tableView.clearSelection();
+        txtName.setText("");
+        txtPass.setText("");
+        txtContactNum.setText("");
+        txtAddress.setText("");
+        txtEmail.setText("");
+        txtDay.setText("");
+        txtName1.setText("");
+        txtPass1.setText("");
+        txtContactNum3.setText("");
+        txtAddress3.setText("");
+        txtEmail3.setText("");
+        txtDay3.setText("");
+    }//GEN-LAST:event_tableAppointmentMouseClicked
+
+    private void tableView1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableView1MouseClicked
+      
+        String tableName1 = tableView1.getValueAt(tableView1.getSelectedRow(), 0).toString();
+        String tablePass1 = tableView1.getValueAt(tableView1.getSelectedRow(), 1).toString();
+        String tableGen1 = tableView1.getValueAt(tableView1.getSelectedRow(), 2).toString();
+        for(int i = 0; i < boxGender3.getItemCount(); i++){
+            if(boxGender4.getItemAt(i).equalsIgnoreCase(tableGen1)){
+                boxGender4.setSelectedIndex(i);
+            }
+        }
+        String tableContactNum3 = tableView1.getValueAt(tableView1.getSelectedRow(), 3).toString();
+        String tableAddress3 = tableView1.getValueAt(tableView1.getSelectedRow(), 4).toString();
+        String tableEmail3 = tableView1.getValueAt(tableView1.getSelectedRow(), 5).toString();
+        String tableDay3 = tableView1.getValueAt(tableView1.getSelectedRow(), 6).toString();
+
+        txtName1.setText(tableName1);
+        txtPass1.setText(tablePass1);
+        txtContactNum3.setText(tableContactNum3);
+        txtAddress3.setText(tableAddress3);
+        txtEmail3.setText(tableEmail3);
+        txtDay3.setText(tableDay3);
+        txtCustomerName.setText(txtName1.getText());
+        txtCustomerContactNumber.setText(txtContactNum3.getText());
+        txtCustomerAddress.setText(txtAddress3.getText());
+        txtTechnicianName.setText(txtName.getText());
+        tableAppointment.clearSelection();
+        txtStatus.setText("");
+        btnCreate3.setEnabled(true);
+    }//GEN-LAST:event_tableView1MouseClicked
+
+    private void txtName1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtName1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtName1ActionPerformed
+
+    private void txtName1KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtName1KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtName1KeyTyped
+
+    private void txtPass1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPass1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtPass1ActionPerformed
+
+    private void boxGender4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxGender4ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_boxGender4ActionPerformed
+
+    private void txtContactNum3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtContactNum3ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactNum3ActionPerformed
+
+    private void txtContactNum3KeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtContactNum3KeyTyped
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtContactNum3KeyTyped
+
+    private void txtStatusKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtStatusKeyTyped
+        char v = evt.getKeyChar();
+
+        if(Character.isDigit(v)){
+            evt.consume();
+        }
+    }//GEN-LAST:event_txtStatusKeyTyped
+
+    private void jLabel9MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel9MouseClicked
+        System.exit(0);
+    }//GEN-LAST:event_jLabel9MouseClicked
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(AppointmentManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(AppointmentManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(AppointmentManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(AppointmentManagement.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new Manager_login().setVisible(true);
+            }
+        });
+    }
+
+    // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> boxGender3;
+    private javax.swing.JComboBox<String> boxGender4;
+    private javax.swing.JButton btnClear2;
+    private javax.swing.JButton btnCreate3;
+    private javax.swing.JButton btnDelete2;
+    private javax.swing.JButton btnUpdate2;
+    private javax.swing.JButton btnback2;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel23;
+    private javax.swing.JLabel jLabel24;
+    private javax.swing.JLabel jLabel25;
+    private javax.swing.JLabel jLabel26;
+    private javax.swing.JLabel jLabel27;
+    private javax.swing.JLabel jLabel28;
+    private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel30;
+    private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane11;
+    private javax.swing.JScrollPane jScrollPane12;
+    private javax.swing.JScrollPane jScrollPane13;
+    private javax.swing.JScrollPane jScrollPane14;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JLabel lblimage2;
+    public javax.swing.JLabel lblname;
+    private javax.swing.JTable tableAppointment;
+    private javax.swing.JTable tableView;
+    private javax.swing.JTable tableView1;
+    private javax.swing.JTextArea txtAddress;
+    private javax.swing.JTextArea txtAddress3;
+    private javax.swing.JTextField txtAppointmentID;
+    private javax.swing.JTextField txtContactNum;
+    private javax.swing.JTextField txtContactNum3;
+    private javax.swing.JTextField txtCustomerAddress;
+    private javax.swing.JTextField txtCustomerContactNumber;
+    private javax.swing.JTextField txtCustomerName;
+    private com.toedter.calendar.JDateChooser txtDate;
+    private javax.swing.JTextArea txtDay;
+    private javax.swing.JTextArea txtDay3;
+    private javax.swing.JTextField txtEmail;
+    private javax.swing.JTextField txtEmail3;
+    private javax.swing.JTextField txtName;
+    private javax.swing.JTextField txtName1;
+    private javax.swing.JTextField txtPass;
+    private javax.swing.JTextField txtPass1;
+    private javax.swing.JTextField txtStatus;
+    private javax.swing.JTextField txtTechnicianName;
+    // End of variables declaration//GEN-END:variables
+}
